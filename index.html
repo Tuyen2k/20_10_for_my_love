@@ -27,7 +27,7 @@
                     .wrap{max-width:920px;margin:28px auto;padding:20px;}
                     header{display:flex;gap:16px;align-items:center}
                     .logo{
-                        width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent-2));
+                        width:80px;aspect-ratio:1/1;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent-2));
                         display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:20px;box-shadow:var(--shadow)
                     }
                     h1{margin:0;color:var(--accent);font-size:clamp(20px,4vw,34px);font-weight:600}
@@ -234,7 +234,19 @@
                         for(let i=0;i<count;i++){
                             const h = document.createElement('div');
                             h.className = 'heart';
-                            const startX = Math.random() * (window.innerWidth * 0.6) + 300; // appear around center-left/right
+
+                            let startX;
+                            if (window.innerWidth < 480) {
+                                // Mobile
+                                startX = Math.random() * window.innerWidth * 0.9;
+                            } else if (window.innerWidth < 1024) {
+                                // Tablet
+                                startX = Math.random() * window.innerWidth * 0.85;
+                            } else {
+                                // Desktop
+                                startX = Math.random() * window.innerWidth * 0.8 + window.innerWidth * 0.1;
+                            }
+
                             const size = 12 + Math.random()*18;
                             h.style.left = startX + 'px';
                             h.style.bottom = -10 + 'px';
