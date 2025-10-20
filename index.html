@@ -1,0 +1,331 @@
+            <!doctype html>
+            <html lang="vi">
+            <head>
+                <meta charset="utf-8" />
+                <meta name="viewport" content="width=device-width,initial-scale=1" />
+                <title>Chúc mừng Ngày Phụ Nữ Việt Nam 20/10</title>
+
+                <!-- Fonts -->
+                <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+                <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath fill='red' d='M16 29s-13-8.14-13-17A7 7 0 0116 7a7 7 0 0113 5c0 8.86-13 17-13 17z'/%3E%3C/svg%3E">
+
+                <style>
+                    :root{
+                        --bg: #fff7fb;
+                        --card: #fff;
+                        --accent: #ff6b8f;
+                        --accent-2: #f6a0c0;
+                        --muted: #6b6b6b;
+                        --glass: rgba(255,255,255,0.85);
+                        --shadow: 0 10px 30px rgba(183,59,88,0.08);
+                        --heart: #ff4d87;
+                        --radius: 16px;
+                        font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+                    }
+
+                    html,body{height:100%;margin:0;background:linear-gradient(180deg,#fff6fb 0%, #fff 60%);color:#222}
+                    .wrap{max-width:920px;margin:28px auto;padding:20px;}
+                    header{display:flex;gap:16px;align-items:center}
+                    .logo{
+                        width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent-2));
+                        display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:20px;box-shadow:var(--shadow)
+                    }
+                    h1{margin:0;color:var(--accent);font-size:clamp(20px,4vw,34px);font-weight:600}
+                    .lead{color:var(--muted);margin-top:8px}
+
+                    .hero{
+                        margin-top:18px;background:var(--card);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow);
+                        display:grid;grid-template-columns:1fr 360px;gap:20px;align-items:start;
+                    }
+
+                    /* Left content */
+                    .intro{background:linear-gradient(180deg, rgba(255,242,247,0.8), var(--glass));padding:18px;border-radius:12px}
+                    .intro p{margin:0 0 12px 0;line-height:1.6;color:#4a2a3b}
+                    .btn-row{display:flex;gap:10px;margin-top:10px}
+                    button{
+                        background:var(--accent);border:0;color:white;padding:10px 14px;border-radius:10px;font-weight:600;cursor:pointer;
+                        box-shadow:0 6px 18px rgba(255,107,143,0.12);
+                    }
+                    button.secondary{background:#fff;border:1px solid #f7d7e0;color:var(--accent);}
+
+                    /* Right preview card */
+                    .card{
+                        border-radius:14px;padding:18px;background:linear-gradient(135deg,#fff7fb,#fff1f6);text-align:center;box-shadow:0 8px 30px rgba(255,77,135,0.06);
+                    }
+                    .card .photo{
+                        width:100%;height:420px;border-radius:12px;background:linear-gradient(135deg,#fff,#ffeef6);display:flex;align-items:center;justify-content:center;
+                        color:#b40057;font-size:40px;overflow:hidden;position:relative;
+                    }
+                    .photo img{width:100%;height:100%;object-fit:cover;display:block}
+                    .gift-title{font-family:"Dancing Script",cursive;font-size:26px;color:#b40057;margin:12px 0 4px}
+                    .recipient{font-weight:700;color:#b40057;font-size:18px}
+                    .main-wish{margin-top:10px;color:#6b3547;min-height:64px}
+
+                    /* hidden wish panel */
+                    .wish-panel{margin-top:14px;background:var(--glass);padding:14px;border-radius:12px;display:none;animation:fadeInUp .5s ease both;}
+                    .wish-panel.show{display:block}
+
+                    @keyframes fadeInUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+
+                    /* memory list, thanks & promise */
+                    .section{margin-top:14px;background:linear-gradient(180deg,#fff,#fff7fd);padding:14px;border-radius:12px}
+                    .section h3{margin:0 0 8px 0;color:#a4005b;font-size:16px}
+                    .memories{padding-left:18px;color:#4b2f3a}
+                    .memories li{margin-bottom:6px}
+
+                    /* footer */
+                    footer{margin-top:18px;text-align:center;color:var(--muted);font-size:14px}
+
+                    /* floating hearts */
+                    .hearts{position:fixed;left:0;top:0;right:0;bottom:0;pointer-events:none;overflow:visible}
+                    .heart{
+                        position:absolute;width:18px;height:18px;background:var(--heart);transform:rotate(-45deg);
+                        border-radius:4px;opacity:0.9;animation:floatUp 4s linear forwards;
+                        box-shadow:0 6px 18px rgba(255,77,135,0.18);
+                    }
+                    .heart::before, .heart::after{
+                        content:"";position:absolute;width:18px;height:18px;border-radius:50%;background:var(--heart);
+                        top:-9px;left:0;
+                    }
+                    .heart::after{left:9px;top:0}
+                    @keyframes floatUp{
+                        0%{transform:translateY(0) scale(1) rotate(-45deg);opacity:0.95}
+                        20%{opacity:1}
+                        100%{transform:translateY(-420px) translateX(40px) scale(.6) rotate(-45deg);opacity:0}
+                    }
+
+                    /* small screens */
+                    @media (max-width:860px){
+                        .hero{grid-template-columns:1fr; padding:14px}
+                        .card{order:-1}
+                        .photo{height:180px}
+                    }
+                </style>
+            </head>
+            <body>
+                <div class="wrap">
+                    <header>
+                        <div class="logo">20/10</div>
+                        <div>
+                            <h1>Chúc mừng Ngày Phụ Nữ Việt Nam 20/10</h1>
+                            <div class="lead">Dành riêng cho cô ấy — một món quà nhỏ, đầy yêu thương.</div>
+                        </div>
+                    </header>
+
+                    <main class="hero" role="main" aria-labelledby="mainTitle">
+                        <!-- LEFT -->
+                        <div>
+                            <div class="intro" id="mainTitle">
+                                <p>Em yêu à, hôm nay là một ngày đặc biệt để anh nhắc em rằng em tuyệt vời như thế nào. Anh làm cái trang này nhỏ xíu như một món quà, hy vọng em sẽ thích.</p>
+
+                                <div style="display:flex;gap:10px;flex-wrap:wrap">
+                                    <button id="revealBtn">Bấm để nhận lời chúc</button>
+                                    <button id="addHeart" class="secondary">Gửi trái tim</button>
+                                </div>
+
+                                <div class="wish-panel" id="wishPanel" aria-live="polite">
+                                    <!-- revealed content via JS -->
+                                </div>
+                            </div>
+
+                            <div class="section" aria-labelledby="memTitle">
+                                <h3 id="memTitle">Những khoảnh khắc đáng nhớ</h3>
+                                <ul class="memories" id="memList">
+                                    <li>Ngày đầu tiên mình gặp nhau - anh làm em ngủ không yên giấc.</li>
+                                    <li>Buổi đi hẹn hò đầu tiên chúng mình cùng đi dạo trong công viên (công viên Thủ Lệ).</li>
+                                    <li>Những lần ra bãi cát vui chơi cùng nhau.</li>
+                                </ul>
+                            </div>
+
+                            <div class="section" style="margin-top:12px">
+                                <h3>Cảm ơn em</h3>
+                                <p style="color:#4b2f3a">Cảm ơn em đã đồng hành, tin tưởng và yêu thương anh theo cách riêng của em. Em làm cuộc sống của anh dịu dàng hơn mỗi ngày.</p>
+
+                                <h3 style="margin-top:10px">Lời hứa</h3>
+                                <ul style="padding-left:18px;color:#4b2f3a">
+                                    <li>Anh hứa sẽ luôn lắng nghe và cùng em vượt qua mọi thứ.</li>
+                                    <li>Anh hứa giữ những điều ngốc nghếch để em được cười.</li>
+                                    <li>Anh hứa trân trọng từng khoảnh khắc bên em.</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- RIGHT PREVIEW -->
+                        <aside class="card" aria-label="E-card preview">
+                            <div class="photo" id="photoFrame">
+                                <!-- Replace src with your image, keep alt meaningful -->
+                                <img id="photoImg" src="/images/my-girl.jpg" alt="Ảnh của em " class="fade-in">
+
+                                <rect width='100%' height='100%' fill='%23ffeef6'/>
+                            </div>
+
+                            <div class="gift-title">Dành tặng em</div>
+                            <div class="recipient" id="recipientName">Em yêu</div>
+                            <div class="main-wish" id="mainWish">Anh yêu em — hơn cả những lời nói ngọt ngào. Mỗi ngày có em là một món quà.</div>
+
+                            <div style="margin-top:12px">
+                                <small style="color:var(--muted)">Từ: <strong style="color:#a4005b">Anh bé của Iem</strong></small>
+                            </div>
+                        </aside>
+                    </main>
+
+                    <footer>
+                        <div>Yêu em rất nhiều — <span id="today"></span></div>
+                    </footer>
+                </div>
+
+                <!-- floating hearts container -->
+                <div class="hearts" id="hearts"></div>
+
+                <!-- optional background music: set src attribute to your audio file path -->
+                <audio id="bgm" loop preload="auto">
+                    <!-- Example: <source src="music.mp3" type="audio/mpeg"> -->
+                     <source src="/sounds/mixkit-playful-10.mp3" type="audio/mpeg" />
+                </audio>
+
+                <script>
+                    // Short helper & data
+                    const revealBtn = document.getElementById('revealBtn');
+                    const wishPanel = document.getElementById('wishPanel');
+                    const mainWish = document.getElementById('mainWish');
+                    const recipientName = document.getElementById('recipientName');
+                    const todaySpan = document.getElementById('today');
+                    const photoImg = document.getElementById('photoImg');
+                    const photoPlaceholder = document.getElementById('photoPlaceholder');
+                    const addHeartBtn = document.getElementById('addHeart');
+                    const heartsContainer = document.getElementById('hearts');
+                    const musicBtn = document.getElementById('musicBtn');
+                    const bgm = document.getElementById('bgm');
+
+                    // Set today's date
+                    const d = new Date();
+                    todaySpan.textContent = d.toLocaleDateString('vi-VN');
+
+                    // Prewritten romantic, sincere, light-humor message (voice of a loving boyfriend)
+                    const wish = `
+                        Em yêu à,<br><br>
+                        Anh vẫn nhớ lần đầu thấy em, tim anh hơi loạn — có lẽ là vì em đẹp và chẳng biết làm sao để tỏ tình cho lịch sự. 
+                        Cảm ơn em đã cho anh rất nhiều nụ cười, những buổi đi chơi ngu ngơ và cả sự chịu đựng trước những câu đùa dở của anh.<br><br>
+                        Anh yêu em thật nhiều. Anh hứa sẽ luôn cùng em khóc khi cần và cùng em cười mỗi ngày. 
+                        Chúc em một ngày 20/10 ngập tràn hạnh phúc — và nếu em đói, anh sẽ tìm cách làm em cười bằng một bữa ăn (hoặc một chiếc bánh thật to).<br><br>
+                        Mãi yêu, người luôn nghĩ về em.
+                    `;
+
+                    // Reveal logic
+                    revealBtn.addEventListener('click', () => {
+                        if (!wishPanel.classList.contains('show')) {
+                            wishPanel.innerHTML = `<div style="font-family:'Dancing Script',cursive;font-size:20px;color:#b40057;margin-bottom:8px">Lời chúc dành cho em</div>
+                                <div style="color:#4b2f3a;line-height:1.6">${wish}</div>`;
+                            wishPanel.classList.add('show');
+                            // update right preview main wish and start a few hearts
+                            mainWish.innerHTML = "Đọc lời chúc trên — anh gửi em một ngày thật ấm áp.";
+                            spawnHearts(100);
+                        } else {
+                            // toggle hide
+                            wishPanel.classList.remove('show');
+                        }
+                    });
+
+                    // Add hearts manually
+                    addHeartBtn.addEventListener('click', ()=>spawnHearts(20));
+
+                    // Spawn floating hearts
+                    function spawnHearts(count = 1){
+                        for(let i=0;i<count;i++){
+                            const h = document.createElement('div');
+                            h.className = 'heart';
+                            const startX = Math.random() * (window.innerWidth * 0.6) + 300; // appear around center-left/right
+                            const size = 12 + Math.random()*18;
+                            h.style.left = startX + 'px';
+                            h.style.bottom = -10 + 'px';
+                            h.style.width = size + 'px';
+                            h.style.height = size + 'px';
+                            h.style.opacity = 0.95;
+                            h.style.transform = 'rotate(-45deg)';
+                            h.style.animationDuration = (3 + Math.random()*2.5) + 's';
+                            heartsContainer.appendChild(h);
+                            // remove after animation
+                            setTimeout(()=>{ h.remove(); }, 6000);
+                        }
+                    }
+
+                    function tryPlay() {
+                        bgm.play().then(() => {
+                            document.removeEventListener('click', tryPlay);
+                            document.removeEventListener('scroll', tryPlay);
+                        }).catch(() => {});
+                    }
+
+                    window.addEventListener('load', () => {
+                        bgm.play().catch(() => {
+                            // Đợi người dùng tương tác
+                            document.addEventListener('click', tryPlay);
+                            document.addEventListener('scroll', tryPlay);
+                        });
+                    });
+
+                    // Allow user to drop an image onto the photo area to set picture
+                    const photoFrame = document.getElementById('photoFrame');
+                    photoFrame.addEventListener('click', ()=> {
+                        // quick prompt to set image URL
+                        const url = prompt('Dán URL ảnh của em hoặc đường dẫn local (ví dụ: images/her.jpg):');
+                        if (url) setImage(url);
+                    });
+
+                    // also support paste file drop
+                    photoFrame.addEventListener('dragover', (e)=>{ e.preventDefault(); photoFrame.style.opacity = 0.9; });
+                    photoFrame.addEventListener('dragleave', ()=>{ photoFrame.style.opacity = 1; });
+                    photoFrame.addEventListener('drop', (e)=>{
+                        e.preventDefault();
+                        photoFrame.style.opacity = 1;
+                        const file = e.dataTransfer.files && e.dataTransfer.files[0];
+                        if (file && file.type.startsWith('image/')) {
+                            const reader = new FileReader();
+                            reader.onload = () => setImage(reader.result);
+                            reader.readAsDataURL(file);
+                        } else {
+                            alert('Vui lòng thả tệp ảnh.');
+                        }
+                    });
+
+                    function setImage(src){
+                        photoImg.src = src;
+                        photoImg.style.display = 'block';
+                        photoPlaceholder.style.display = 'none';
+                    }
+
+                    // Small accessibility: reveal wish when pressing Enter on button
+                    revealBtn.addEventListener('keyup', (e)=>{ if (e.key === 'Enter') revealBtn.click(); });
+
+                    // Small initial warm hearts
+                    setTimeout(()=>spawnHearts(18), 1000);
+
+                    // Hearts around image
+                    function spawnAround(){
+                        const rect = photoImg.getBoundingClientRect();
+                        const heart = document.createElement('div');
+                        heart.className='heart';
+                        heart.style.left = (rect.left + Math.random()*rect.width) + 'px';
+                        heart.style.top = (rect.top + Math.random()*rect.height) + 'px';
+                        document.body.appendChild(heart);
+                        heart.animate([
+                        {transform:'scale(0.5)',opacity:1},
+                        {transform:'scale(1.2) translateY(-40px)',opacity:0}
+                        ],{duration:2000,easing:'ease-out'}).onfinish=()=>heart.remove();
+                        }
+                        setInterval(spawnAround, 800);
+
+
+                        // Accessibility: allow Enter key on reveal button
+                        revealBtn.addEventListener('keyup', (e)=>{ if(e.key === 'Enter') revealBtn.click(); });
+
+
+                        // small touch: set signature name automatically if url param ?from=Name
+                        const params = new URLSearchParams(location.search);
+                        if(params.has('from')){
+                        const name = params.get('from');
+                        document.querySelector('.signature').textContent = `Yêu em — ${name}, 20/10`;
+                    }
+                </script>
+            </body>
+            </html>
