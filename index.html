@@ -275,15 +275,7 @@
                             document.addEventListener('scroll', tryPlay);
                         });
                     });
-
-                    // Allow user to drop an image onto the photo area to set picture
-                    const photoFrame = document.getElementById('photoFrame');
-                    photoFrame.addEventListener('click', ()=> {
-                        // quick prompt to set image URL
-                        const url = prompt('Dán URL ảnh của em hoặc đường dẫn local (ví dụ: images/her.jpg):');
-                        if (url) setImage(url);
-                    });
-
+                    
                     // also support paste file drop
                     photoFrame.addEventListener('dragover', (e)=>{ e.preventDefault(); photoFrame.style.opacity = 0.9; });
                     photoFrame.addEventListener('dragleave', ()=>{ photoFrame.style.opacity = 1; });
